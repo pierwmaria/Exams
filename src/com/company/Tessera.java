@@ -5,7 +5,7 @@ import java.util.*;
 public class Tessera {
 
     private String titolare;
-    private int punti, acquisti, id;
+    private int  punti, acquisti, id;
 
     private static final int maxNumTessere = UsaTessera.maxNumTessere;
     private static int contatore = 0;
@@ -18,10 +18,6 @@ public class Tessera {
     public static String getNomeTitolare(int id) throws TesseraNotFound {
         if (id < 0 || id >= contatore) throw new TesseraNotFound("Id non valido");
         return listaTitolari[id];
-    }
-
-    public void increaseContatore() {
-        this.contatore++;
     }
 
     // Costruttore

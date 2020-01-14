@@ -18,6 +18,7 @@ public class TesseraManagement {
     private final int maxNumTessere = UsaTessera.maxNumTessere; // final significa costante e non variabile
     private Tessera[] tutteTessere; // nuovo array
 
+
     // Costruttore
 
     public TesseraManagement() {
@@ -25,7 +26,8 @@ public class TesseraManagement {
         this.tutteTessere = new Tessera[maxNumTessere]; //allocazione array tutteTessere
     }
 
-    //inizializzare progetto con indice i
+
+    //Inizializzare progetto con indice i
 
     public void addTessera(Tessera t, int indice) throws TesseraLogicError {
         if (indice < 0 || indice >= maxNumTessere) throw new TesseraLogicError("Indice dato non valido");

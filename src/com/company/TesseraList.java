@@ -83,6 +83,7 @@ public class TesseraList {
         return -1;
     }
 
+
     public void printTutteTessereList() {
         this.listaTessere.forEach(t -> {
             if (t != null) {

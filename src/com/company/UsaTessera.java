@@ -22,7 +22,7 @@ public class UsaTessera {
 
             //Creo 1 TesseraList
 
-            TesseraList tl1 = new TesseraList(10);
+            TesseraList tl1 = new TesseraList(100);
 
             // Creo 2 TesseraGold
             TesseraGold tg1 = new TesseraGold();
@@ -111,11 +111,14 @@ public class UsaTessera {
             tm1.addTesseraIO();
             tm1.addTesseraIO();
 
-            tm1.increasePuntiTesseraThreshold(0);
+            tm1.addTessera(t1, 0);
+
 
             System.out.println("Tessere emesse da Management:");
 
             tm1.printTutteTessere();
+
+            tm1.getTesseraIO();
 
             System.out.println("Tessere ordinate per punti");
 
@@ -126,7 +129,6 @@ public class UsaTessera {
             tl1.addTesseraToListIO();
             tl1.addTesseraToListIO();
 
-            tm1.increasePuntiTesseraThreshold(0);
             System.out.println("Tessere presenti in TesseraList:");
 
             tl1.printTutteTessereList();
@@ -134,6 +136,10 @@ public class UsaTessera {
             System.out.println("TesseraList ordinata per punti");
 
             tl1.printTitolareOrdinato();
+
+            tl1.getTesseraFromListIO();
+
+            tl1.getTesseraByTitolare("p");
 
             System.out.println("Numero di tessere emesse: " + Tessera.getNumeroTessereEmesse());
 
