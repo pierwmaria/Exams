@@ -32,7 +32,6 @@ public class UsaTessera {
             System.out.println("Numero tessere emesse: " + Tessera.getNumeroTessereEmesse());
 
 
-
             // Reset acquisti di t1
             //t1.resetPuntiAndAcquisti();
 
@@ -57,7 +56,6 @@ public class UsaTessera {
             tg1.buySomething(40);
             tg2.buySomething(4000);
             t4.buySomething(500);
-
 
 
             // Vedo quanti punti hanno
@@ -123,27 +121,32 @@ public class UsaTessera {
             //tl1.addTesseraToList(t1, 0);
 
             // Cerco tessera chiedendo input utente per indice
-            tm1.getTesseraIO();
+            // tm1.getTesseraIO();
 
             //Stampo TesseraList
             System.out.println("Print TesseraLIST");
 
             //tl1.getTesseraFromListIO();
 
-            t1.getTitolareTesseraIO();
-            t1.getPuntiTesseraIO();
+            // t1.getTitolareTesseraIO();
+            // t1.getPuntiTesseraIO();
 
-            System.exit(0);
+            // System.exit(0);
 
             //Stampo da TesseraList tessera con indice 0
             //System.out.println("Stampa da lista tessera con indice 0" + tl1.getTesseraFromList(0));
 
             //Chiedo indice per trovare Tessera da List
 
-            tl1.getTesseraFromListIO();
+            tl1.addTesseraToList(t1, 0);
+            tl1.addTesseraToList(t2, 3);
+            tl1.addTesseraToList(t3, 2);
+            tl1.addTesseraToList(t4, 6);
+            tl1.printTutteTessereList();
+            tl1.printTitolareOrdinato();
 
             //System.out.println("Stampo List Tessere: "); PROBLEM
-           // tl1.printTutteTessereList();
+            // tl1.printTutteTessereList();
 
             //System.out.println("Stampo TesseraList ordinata"); PROBLEM
             //tl1.printTitolareOrdinato();
@@ -198,10 +201,9 @@ public class UsaTessera {
             tm1.printLetteraPuntiTitolari();
 
 
-
-          //  Cath per i messaggi di errore
-        //} catch (IOException ioe) {
-          //  System.err.println("Message from exception: " + ioe.getMessage());
+            //  Cath per i messaggi di errore
+            //} catch (IOException ioe) {
+            //  System.err.println("Message from exception: " + ioe.getMessage());
         } catch (NotEnoughPoints nep) {
             // output con standard err non in ordine
             System.err.println("Message from exception: " + nep.getMessage());

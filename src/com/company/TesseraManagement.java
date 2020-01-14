@@ -8,8 +8,8 @@ public class TesseraManagement {
     /**
      * A partire dall'ultimo assignment aggiungere:
      * 1) interazione IO con utente - FATTO
-     *      a) inserimento dati
-     *      b) visualizzazione dati (da terminale)
+     * a) inserimento dati
+     * b) visualizzazione dati (da terminale)
      * 2) gestione eccezioni su IO, gestire se utente da valore sbagliato (es. negativo) - FATTO
      * 3) in una delle classi sostituire vettore con lista (ArrayList) - FATTO
      */
@@ -27,16 +27,14 @@ public class TesseraManagement {
 
     //inizializzare progetto con indice i
 
-/**
-    public void addTesseraOld(Tessera t, int indice) throws TesseraLogicError {
+    public void addTessera(Tessera t, int indice) throws TesseraLogicError {
         if (indice < 0 || indice >= maxNumTessere) throw new TesseraLogicError("Indice dato non valido");
         this.tutteTessere[indice] = t;
         this.dirty = true;
-    }*/
+    }
 
     //come mai posso scrivere il titolare ma non posso aggungere punti?
-
-    public void addTessera() throws TesseraLogicError, IOException, MaxTessereReached {
+    public void addTesseraIO() throws TesseraLogicError, IOException, MaxTessereReached {
         Scanner sc = new Scanner(System.in);
         System.out.println("Inserire titolare della tessera:");
         String titolare = sc.nextLine();
@@ -56,7 +54,7 @@ public class TesseraManagement {
         System.out.println("Inserisci l'indice della tessera che desideri");
         int indice = sc.nextInt();
         if (indice < 0 || indice >= maxNumTessere) throw new TesseraLogicError("Indice dato non valido");
-        if (this.tutteTessere[indice] !=null) {
+        if (this.tutteTessere[indice] != null) {
             System.out.println("Hai richiesto la tessera " + this.tutteTessere[indice].toString());
         } else {
             System.out.println("Hai richiesto una tessera vuota");
