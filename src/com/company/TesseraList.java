@@ -8,20 +8,26 @@ import java.util.Scanner;
 
 public class TesseraList {
 
-    private int maxSize;
+    private int maxSize, currentSize;
     private List<Tessera> listaTessere;
 
     public TesseraList(int maxSize) throws MaxTessereReached {
         this.maxSize = maxSize;
+        this.currentSize = 0;
         this.listaTessere = new ArrayList<>(this.maxSize);
         for (int i = 0; i < this.maxSize; i++) {
             this.listaTessere.add(i, null);
         }
     }
 
+    public int getCurrentSize() {
+        return this.currentSize;
+    }
+
     public void addTesseraToList(Tessera t, int indice) throws TesseraLogicError {
         if (indice < 0 || indice >= this.maxSize) throw new TesseraLogicError("Indice non valido");
         this.listaTessere.add(indice, t);
+        this.currentSize++;
     }
 
     public void addTesseraToListIO() throws TesseraLogicError, IOException, MaxTessereReached {
@@ -34,6 +40,7 @@ public class TesseraList {
         Tessera t = new Tessera(titolare);
         this.listaTessere.add(indice, t);
         System.out.println("Ho inserito la tessera " + t.toString());
+        this.currentSize++;
     }
 
     //Tessera dato indice inserito dall'utente
@@ -56,18 +63,25 @@ public class TesseraList {
         return this.listaTessere.get(indice);
     }
 
-    public void setTessereList(List<Tessera> listaTessere) {
-        this.listaTessere = listaTessere;
+    public List<Tessera> getListaTessere() {
+        List<Tessera> resultList = new ArrayList<>();
+        for (Tessera t : this.listaTessere) {
+            if (t != null) {
+                resultList.add(t);
+            }
+        }
+        return resultList;
     }
 
     // strategia first come first served (FCFS)
     public void addAllTesseraList(List<Tessera> listaTessere) throws MaxTessereReached {
         int j = 0;
-        if (this.listaTessere.size() + listaTessere.size() >= this.maxSize)
+        if (this.currentSize + listaTessere.size() >= this.maxSize)
             throw new MaxTessereReached("Collezione di Tessere troppo grande");
         for (int i = 0; i < this.maxSize && j < listaTessere.size(); i++) {
             if (this.listaTessere.get(i) == null) {
                 this.listaTessere.add(i, listaTessere.get(j));
+                this.currentSize++;
                 j++;
             }
         }
@@ -83,13 +97,12 @@ public class TesseraList {
         return -1;
     }
 
-
     public void printTutteTessereList() {
-        this.listaTessere.forEach(t -> {
-            if (t != null) {
-                System.out.println(t.getTitolare());
+        for (int i = 0; i < this.maxSize; i++) {
+            if (this.listaTessere.get(i) != null) {
+                System.out.println("Indice " + i + ": " + this.listaTessere.get(i).getTitolare());
             }
-        });
+        }
     }
 
     public void printTitolareOrdinato() {
@@ -100,10 +113,12 @@ public class TesseraList {
             }
         }
         ordinati.sort(Comparator.comparingInt(Tessera::getPunti));
+        System.out.println("Stampo titolari ordinati per punti");
         ordinati.forEach(t -> System.out.println(t.getTitolare() + " -> " + t.getPunti()));
     }
 
     public void printTesseraListThreshold(int threshold) {
+        System.out.println("Stampo tutte le tessere con punti minori di " + threshold);
         for (Tessera t : this.listaTessere) {
             if (t != null && t.getPunti() < threshold) {
                 System.out.println(t.getTitolare());
@@ -129,6 +144,7 @@ public class TesseraList {
             throw new TesseraLogicError("Non esiste la tessera con indice " + index2);
         this.listaTessere.get(index2).increasePunti(this.listaTessere.get(index1).getPunti());
         this.listaTessere.get(index1).setPunti(0);
+        System.out.println("Ho spostato i punti da " + this.listaTessere.get(index1).getTitolare() + " a " + this.listaTessere.get(index2).getTitolare());
     }
 
     public void printLetteraPuntiTitolari() {

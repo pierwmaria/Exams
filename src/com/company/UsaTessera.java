@@ -146,15 +146,12 @@ public class UsaTessera {
             System.exit(0);
 
 
-
-
 //            tm1.addTessera(t1, 0);
 //            tm1.addTessera(t2, 1);
 //            tm1.addTessera(t3, 2);
 //            tm1.addTessera(tg2, 3);
 //            tm1.addTessera(tg1, 4);
 //            tm1.addTessera(t4, 5);
-
 
 
             //Aggiungo alla lista la tessera t1

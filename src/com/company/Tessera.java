@@ -5,7 +5,7 @@ import java.util.*;
 public class Tessera {
 
     private String titolare;
-    private int  punti, acquisti, id;
+    private int punti, acquisti, id;
 
     private static final int maxNumTessere = UsaTessera.maxNumTessere;
     private static int contatore = 0;
@@ -97,6 +97,7 @@ public class Tessera {
     public void spendPunti(int punti) throws NotEnoughPoints {
         if (this.checkEnoughPunti(punti)) {
             this.punti -= punti;
+            this.increaseAcquisti();
         } else throw new NotEnoughPoints("Punti insufficienti per titolare " + this.titolare);
     }
 

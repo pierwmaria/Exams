@@ -88,7 +88,7 @@ public class TesseraManagement {
         return -1;
     }
 
-    public int getMaxNumTessere(){
+    public int getMaxNumTessere() {
         return this.maxNumTessere;
     }
 
