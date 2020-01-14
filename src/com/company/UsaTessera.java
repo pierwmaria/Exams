@@ -98,6 +98,14 @@ public class UsaTessera {
             }
             */
 
+            //Aumento punti da input utente
+
+            t1.increasePuntiIO();
+            System.out.println("t1 ha punti :" + t1.getPunti());
+
+            System.exit(0);
+
+
             /**
              * Per DAVE
              * Da qui in avanti fino a System.exit testo Array e list
@@ -139,11 +147,9 @@ public class UsaTessera {
 
             tl1.getTesseraFromListIO();
 
-            tl1.getTesseraByTitolare("p");
 
             System.out.println("Numero di tessere emesse: " + Tessera.getNumeroTessereEmesse());
 
-            System.exit(0);
 
 
 

@@ -61,6 +61,13 @@ public class Tessera {
         this.punti += punti;
     }
 
+    public void increasePuntiIO() throws TesseraLogicError {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Di quanti punti vuoi aumentare?");
+        int valore = sc.nextInt();
+        this.increasePunti(valore);
+    }
+
     public void setPunti(int punti) {
         this.punti = punti;
     }
