@@ -26,7 +26,7 @@ public class TesseraList {
 
     public void addTesseraToListIO() throws TesseraLogicError, IOException, MaxTessereReached {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Inserire titolare della tessera:");
+        System.out.println("Inserire titolare della tessera in TesseraList:");
         String titolare = sc.nextLine();
         System.out.println("Inserire indice:");
         int indice = sc.nextInt();

@@ -36,7 +36,7 @@ public class TesseraManagement {
     //come mai posso scrivere il titolare ma non posso aggungere punti?
     public void addTesseraIO() throws TesseraLogicError, IOException, MaxTessereReached {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Inserire titolare della tessera:");
+        System.out.println("Inserire titolare nuova TesseraManagement:");
         String titolare = sc.nextLine();
         System.out.println("Inserire indice:");
         int indice = sc.nextInt();
@@ -44,7 +44,7 @@ public class TesseraManagement {
         Tessera t = new Tessera(titolare);
         this.tutteTessere[indice] = t;
         this.dirty = true;
-        System.out.println("Ho inserito la tessera " + t.toString());
+        System.out.println("Ho inserito la tessera " + t.toString() + " in TesseraManagement");
     }
 
     //Trovare tessera dato id con input utente
@@ -85,6 +85,11 @@ public class TesseraManagement {
         }
         return -1;
     }
+
+    public int getMaxNumTessere(){
+        return this.maxNumTessere;
+    }
+
 
     //Stampare tutti gli elementi del vettore
 

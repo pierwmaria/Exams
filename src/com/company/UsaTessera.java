@@ -17,7 +17,7 @@ public class UsaTessera {
             Tessera t4 = new Tessera();
 
 
-            // Creo 1 TesseraManagement
+            //Creo 1 TesseraManagement
             TesseraManagement tm1 = new TesseraManagement();
 
             //Creo 1 TesseraList
@@ -36,12 +36,12 @@ public class UsaTessera {
             //t1.resetPuntiAndAcquisti();
 
             // Set di titolari
-            t1.setTitolare("Pier Maria Baraldo 1st");
-            t2.setTitolare("Francesco Rodriguez 1st");
+            t1.setTitolare("Pier Maria Baraldo");
+            t2.setTitolare("Francesco Rodriguez");
             t3.setTitolare("Alberto Visconti");
-            t4.setTitolare("Scemo");
-            tg1.setTitolare("Giorgio thefire");
-            tg2.setTitolare("Gold Ricco 1st");
+            t4.setTitolare("Pippo Argenton");
+            tg1.setTitolare("Giorgio Thefire");
+            tg2.setTitolare("Gold Richer");
 
             // Set del secondo titolare TesseraGold
             tg1.setSecondoTitolare("Jacopo Thefire 2nd");
@@ -59,12 +59,12 @@ public class UsaTessera {
 
 
             // Vedo quanti punti hanno
-            System.out.println("Utente t1 ha " + t1.getPunti() + " punti");
-            System.out.println("Utente t2 ha " + t2.getPunti() + " punti");
-            System.out.println("Utente t3 ha " + t3.getPunti() + "punti");
-            System.out.println("Utente t4 ha " + t4.getPunti() + "punti");
-            System.out.println("Utente tg1 ha " + tg1.getPunti() + "punti");
-            System.out.println("Utente tg2 ha " + tg2.getPunti() + "punti");
+            System.out.println(t1.getTitolare() + " ha " + t1.getPunti() + " punti");
+            System.out.println(t2.getTitolare() + " ha " + t2.getPunti() + " punti");
+            System.out.println(t3.getTitolare() + " ha " + t3.getPunti() + " punti");
+            System.out.println(t4.getTitolare() + " ha " + t4.getPunti() + " punti");
+            System.out.println(tg1.getTitolare() + " ha " + tg1.getPunti() + " punti");
+            System.out.println(tg2.getTitolare() + " ha " + tg2.getPunti() + " punti");
 
 
             // Compro qualcosa un'altra volta
@@ -72,8 +72,8 @@ public class UsaTessera {
             t2.buySomething(10);
 
             // Vedo quanti punti hanno una seconda volta
-            System.out.println("Utente t1, dopo secondo acquisto, ha " + t1.getPunti() + " punti");
-            System.out.println("Utente t2, dopo secondo acquisto, ha " + t2.getPunti() + " punti");
+            System.out.println(t1.getTitolare() + " dopo secondo acquisto ha " + t1.getPunti() + " punti");
+            System.out.println(t2.getTitolare() + " dopo secondo acquisto ha " + t2.getPunti() + " punti");
 
 
             //Spendo punti t1 e t2
@@ -98,8 +98,48 @@ public class UsaTessera {
             }
             */
 
+            /**
+             * Per DAVE
+             * Da qui in avanti fino a System.exit testo Array e list
+             * Aggiungo tessere prima su uno poi sull'altro, provo a far eun increasePoint a tutti e poi le stampo
+             * ordinate per punti, ma la lista che mi dà ha solo tessere con 0 punti =(
+             */
+
             //Aggiungo tessere a Tesseremanagement
-            System.out.println("TessereManagement:");
+            System.out.println("TESSERAMANAGEMENT:");
+
+            tm1.addTesseraIO();
+            tm1.addTesseraIO();
+
+            tm1.increasePuntiTesseraThreshold(0);
+
+            System.out.println("Tessere emesse da Management:");
+
+            tm1.printTutteTessere();
+
+            System.out.println("Tessere ordinate per punti");
+
+            tm1.printTitolareOrdinato();
+
+            System.out.println("TESSERALIST:");
+
+            tl1.addTesseraToListIO();
+            tl1.addTesseraToListIO();
+
+            tm1.increasePuntiTesseraThreshold(0);
+            System.out.println("Tessere presenti in TesseraList:");
+
+            tl1.printTutteTessereList();
+
+            System.out.println("TesseraList ordinata per punti");
+
+            tl1.printTitolareOrdinato();
+
+            System.out.println("Numero di tessere emesse: " + Tessera.getNumeroTessereEmesse());
+
+            System.exit(0);
+
+
 
 
 //            tm1.addTessera(t1, 0);
@@ -110,12 +150,6 @@ public class UsaTessera {
 //            tm1.addTessera(t4, 5);
 
 
-            // Creo tm1 in TesseraMenagement con metodo addTessera()
-            //tm1.addTessera();
-//            tm1.addTessera();
-//            tm1.addTessera();
-
-            //tl1
 
             //Aggiungo alla lista la tessera t1
             //tl1.addTesseraToList(t1, 0);
@@ -124,14 +158,13 @@ public class UsaTessera {
             // tm1.getTesseraIO();
 
             //Stampo TesseraList
-            System.out.println("Print TesseraLIST");
+            //System.out.println("Print TesseraLIST");
 
             //tl1.getTesseraFromListIO();
 
             // t1.getTitolareTesseraIO();
             // t1.getPuntiTesseraIO();
 
-            // System.exit(0);
 
             //Stampo da TesseraList tessera con indice 0
             //System.out.println("Stampa da lista tessera con indice 0" + tl1.getTesseraFromList(0));
@@ -201,9 +234,9 @@ public class UsaTessera {
             tm1.printLetteraPuntiTitolari();
 
 
-            //  Cath per i messaggi di errore
-            //} catch (IOException ioe) {
-            //  System.err.println("Message from exception: " + ioe.getMessage());
+            // Cath per i messaggi di errore
+        } catch (IOException ioe) {
+            System.err.println("Message from exception: " + ioe.getMessage());
         } catch (NotEnoughPoints nep) {
             // output con standard err non in ordine
             System.err.println("Message from exception: " + nep.getMessage());
